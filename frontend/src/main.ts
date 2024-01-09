@@ -1,6 +1,8 @@
 import './assets/main.css'
 import './assets/buttons.scss'
+import 'uno.css'
 import '@fontsource/poppins'
+import '@unocss/reset/tailwind-compat.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

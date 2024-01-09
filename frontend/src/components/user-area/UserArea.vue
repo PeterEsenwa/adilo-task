@@ -34,7 +34,7 @@ defineProps({
     font: inherit;
     font-weight: 600; /* Make the button text bolder */
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1em;
 
 
     &:hover {

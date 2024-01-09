@@ -11,6 +11,7 @@ export default defineConfig({
       collections: {
         svgSpinners: () => import('@iconify-json/svg-spinners/icons.json').then((m) => m.default),
         googleMaterialIcons: () => import('@iconify-json/ic/icons.json').then((m) => m.default),
+        fluentIcons: () => import('@iconify-json/fluent/icons.json').then((m) => m.default),
       }
     })
   ],

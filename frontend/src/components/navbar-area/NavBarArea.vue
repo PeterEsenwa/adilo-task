@@ -4,7 +4,7 @@
 
       <NavigationMenuItem>
         <NavigationMenuLink
-          class="text-grass11 hover:bg-green3 focus:shadow-green7 block select-none rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]"
+          class="text-grass11 focus:font-bold block select-none rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]"
           href="#"
         >
           Projects
@@ -13,23 +13,25 @@
 
       <NavigationMenuItem>
         <NavigationMenuTrigger
-          class="text-grass11 hover:bg-green3 focus:shadow-green7 group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]"
+          class="text-grass11 focus:font-bold group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none"
         >
           Tools & App
-          <span
-            class="icon-ic:baseline-keyboard-arrow-down text-green10 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
-          />
         </NavigationMenuTrigger>
-        <NavigationMenuContent class="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute top-0 left-0 w-full sm:w-auto">
-          <ul class="m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[600px] sm:grid-flow-col sm:grid-rows-3">
-            <NavigationMenuListItem v-for="tool in tools" :title="tool" href="#" />
+        <NavigationMenuContent class="absolute top-0 left-0 w-full sm:w-auto">
+          <ul class="m-0 grid list-none gap-x-[10px] sm:w-[106%] sm:grid-flow-col sm:grid-rows-3"
+            style="{
+                box-shadow: 0 3px 24px rgba(0, 0, 0, 0.1)
+              }">
+            <NavigationMenuListItem :title="'Snapbyte Recorder'" class="p-1" href="#"></NavigationMenuListItem>
+            <NavigationMenuListItem :title="'AudioBounce'" class="p-1" href="#"></NavigationMenuListItem>
+            <NavigationMenuListItem :title="'Sugar Voice'" :is-last-item="true" class="p-1" href="#"></NavigationMenuListItem>
           </ul>
         </NavigationMenuContent>
       </NavigationMenuItem>
 
       <NavigationMenuItem v-for="tab in tabs">
         <NavigationMenuLink
-          class="text-grass11 hover:bg-green3 focus:shadow-green7 block select-none rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]"
+          class="text-grass11 focus:font-bold block select-none rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]"
           href="#"
         >
           {{ tab.name }}
@@ -43,7 +45,7 @@
       </NavigationMenuIndicator>
     </NavigationMenuList>
 
-    <div class="perspective-[2000px] absolute top-full left-0 flex w-full justify-center">
+    <div class="perspective-[2000px] absolute top-full right-[280px] left-0 flex justify-center">
       <NavigationMenuViewport
         class="data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut relative mt-[10px] h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-[10px] bg-white transition-[width,_height] duration-300 sm:w-[var(--radix-navigation-menu-viewport-width)]"
       />
@@ -86,24 +88,22 @@ const selectTool = (tool) => {
 const currentTrigger = ref('')
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .navbar {
   display: flex;
 }
 
-.active::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background-color: blue;
-}
+.navigation-menu-link, .navigation-menu-trigger {
+  position: relative; // Needed for absolute positioning of pseudo-elements
 
-.dropdown {
-  background-color: white;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  &:focus::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px; // Adjust the thickness of the top border
+    background-color: blue; // Your desired color for the top border
+  }
 }
 </style>

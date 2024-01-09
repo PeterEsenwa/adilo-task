@@ -44,12 +44,12 @@ const userInitials = props?.userName.split(' ').map(name => name[0]).join('');
 }
 
 .profile-name {
-  font-size: 1em;
+  font-size: 0.85em;
   font-weight: bold;
 }
 
 .profile-description {
-  font-size: 0.7em;
+  font-size: 0.65em;
   color: gray;
 }
 </style>

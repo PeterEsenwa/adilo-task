@@ -1,6 +1,8 @@
 <template>
   <Story>
-    <NavigationMenuListItem v-for="tool in tools" :title="tool" href="#" />
+    <NavigationMenuListItem :title="'Snapbyte Recorder'" href="#" />
+    <NavigationMenuListItem :title="'AudioBounce'" href="#" />
+    <NavigationMenuListItem :title="'Sugar Voice'" :is-last-item="true" href="#" />
   </Story>
 </template>
 
