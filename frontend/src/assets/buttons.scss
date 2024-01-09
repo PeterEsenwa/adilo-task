@@ -1,0 +1,25 @@
+:root {
+	--button-primary: #0DABD8;
+	--button-secondary: #EF5350;
+	--button-primary-hover: #0B9AC6;
+	--button-secondary-hover: #E53935;
+
+	--button-bg-color: var(--button-primary);
+	--button-hover-bg-color: var(--button-primary-hover);
+	--button-text-color: white;
+	--button-border-radius: 50px;
+	--button-padding: 0 1.25em;
+	--button-font-size: 16px;
+}
+
+.btn-primary, base-button.btn-primary, button.btn-primary {
+	--button-bg-color: var(--button-primary);
+	--button-hover-bg-color: var(--button-primary-hover);
+	--button-text-color: #fff;
+}
+
+.btn-secondary, base-button.btn-secondary, button.btn-secondary {
+	--button-bg-color: var(--button-secondary);
+	--button-hover-bg-color: var(--button-secondary-hover);
+	--button-text-color: #fff;
+}

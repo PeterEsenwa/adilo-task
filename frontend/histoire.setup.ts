@@ -1,3 +1,6 @@
 import 'virtual:uno.css'
 import 'uno.css'
 import '@unocss/reset/tailwind-compat.css'
+import './src/assets/buttons.scss'
+import './src/assets/main.css'
+import '@fontsource/poppins'

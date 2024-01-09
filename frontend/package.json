@@ -17,6 +17,7 @@
     "story:preview": "histoire preview"
   },
   "dependencies": {
+    "@fontsource/poppins": "^5.0.8",
     "pinia": "^2.1.7",
     "radix-vue": "^1.2.6",
     "sass": "^1.69.7",
