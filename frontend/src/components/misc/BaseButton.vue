@@ -23,7 +23,9 @@ const props = defineProps<{
   @apply h-[2.5em] p-[--button-padding];
   @apply text-size-[--button-font-size];
   @apply inline-flex items-center justify-center gap-2;
-  @apply border-none cursor-pointer;
+  @apply cursor-pointer;
+
+  border: 1px solid var(--button-border-color);
 
   &:hover {
     background-color: var(--button-hover-bg-color);

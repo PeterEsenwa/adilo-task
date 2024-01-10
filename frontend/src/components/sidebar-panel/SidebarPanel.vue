@@ -1,8 +1,10 @@
 <template>
-  <div class="panel" @click="navigateTo(props.panel.route)">
-    <img :src="`${panel.icon}`" alt="" class="icon" />
+  <aside class="sidebar">
+  <div class="panel" v-for="panel in panelInfo" @click="navigateTo(panel.route)">
+    <span :class="panel.icon" />
     {{ panel.title }}
   </div>
+  </aside>
 </template>
 
 <script setup lang="ts">
@@ -15,7 +17,7 @@ export interface PanelInfo {
 }
 
 const props = defineProps<{
-  panel: Record<string, PanelInfo>[],
+  panelInfo: PanelInfo[],
 }>();
 
 const router = useRouter();
@@ -26,13 +28,37 @@ const navigateTo = (route: string) => {
 </script>
 
 <style scoped>
+.sidebar {
+  @apply flex flex-col w-64 h-screen;
+  border-right: 2px solid #21455E;
+
+  /* Additional styling */
+  @apply overflow-y-auto;
+  @apply px-4 py-2;
+  @apply relative;
+
+  scroll-behavior: smooth;
+  color: #21455E;
+  font-size: 1em;
+
+  /* Styling for scrollbar (optional) */
+  &::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-gray-600;
+    @apply rounded-full;
+  }
+}
+
 .panel {
-  @apply cursor-pointer p-4 flex items-center gap-2;
+  @apply cursor-pointer p-4 flex items-center gap-1em;
   @apply border border-transparent;
   @apply rounded-lg;
 
   &:hover {
-    background: #E2E5ED 0% 0% no-repeat padding-box;
+    background: #E2E5ED 0 0 no-repeat padding-box;
     border: 1px solid #0DABD838;
     border-radius: 10px;
   }

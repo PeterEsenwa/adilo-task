@@ -139,7 +139,7 @@ const recordingOptions = ref<RecordingOptions>({
   mic: false,
 })
 
-const name = ref('')
+const name = ref('');
 
 const startRecording = () => {
   emit('start-recording', {

@@ -1,16 +1,19 @@
 <template>
   <Story>
     <SidebarPanel
-      panel=""
+      :panel-info="sideItem"
     />
   </Story>
 </template>
 
 <script setup lang="ts">
-import SidebarPanel, { type PanelInfo } from '@/components/sidebar-panel/SidebarPanel.vue'
+import SidebarPanel from '@/components/sidebar-panel/SidebarPanel.vue'
+import videoIcon from '@/assets/icons/video-player.svg';
 
-const sideItems: Record<string, PanelInfo> = {
+const sideItem = [
+  {
   title: 'My Recordings',
-  icons: ''
-};
+  icons: videoIcon,
+  }
+]
 </script>
