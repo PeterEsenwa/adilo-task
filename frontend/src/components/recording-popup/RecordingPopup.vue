@@ -123,7 +123,9 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  (event: 'start-recording', options: RecordingOptions): void
+  (event: 'start-recording', options: RecordingOptions & {
+    name: string
+  }): Promise<void>
 }>()
 
 const open = ref(false)
@@ -146,7 +148,8 @@ const startRecording = () => {
     ...recordingOptions.value,
     name: name.value,
     project: selectedProject.value,
-  })
+  } as RecordingOptions & { name: string })
+
   open.value = false
 }
 </script>

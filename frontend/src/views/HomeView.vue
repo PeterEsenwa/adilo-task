@@ -3,12 +3,14 @@
     <div>
       <AppHeader />
     </div>
+    <div class="home-section">
     <SidebarPanel :panel-info="sideItem" />
     <div class="main-section">
-      <Breadcrumbs :breadcrumbs="sideItem" />
+      <Breadcrumbs :breadcrumbs="crumbs" />
       <ActionRow />
       <TablePlaceholder />
       <CallToAction />
+    </div>
     </div>
   </main>
 </template>
@@ -20,6 +22,17 @@ import ActionRow from '@/components/action-row/ActionRow.vue'
 import Breadcrumbs from '@/components/misc/Breadcrumbs.vue'
 import TablePlaceholder from '@/components/table-placeholdedr/TablePlaceholder.vue'
 import CallToAction from '@/components/call-to-action/CallToAction.vue'
+
+const crumbs = [
+  {
+    label: 'Snapbyte',
+    href: '#'
+  },
+  {
+    label: 'My Recordings',
+    href: '#'
+  }
+]
 
 const sideItem = [
   {
@@ -33,4 +46,12 @@ const sideItem = [
 ]
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.home-section {
+  @apply flex min-h-screen;
+}
+
+.main-section {
+  @apply flex-1 p-2em
+}
+</style>

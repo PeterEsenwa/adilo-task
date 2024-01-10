@@ -24,13 +24,13 @@
 import { defineProps } from 'vue';
 import { AvatarFallback, AvatarImage, AvatarRoot } from 'radix-vue';
 
-const props = defineProps({
-  userImage: String,
-  userName: String,
-  userEmail: String
-});
+const props = defineProps<{
+  userImage: string,
+  userName: string,
+  userEmail: string
+}>();
 
-const userInitials = props?.userName.split(' ').map(name => name[0]).join('');
+const userInitials = props.userName.split(' ').map(name => name[0]).join('');
 </script>
 
 <style scoped>

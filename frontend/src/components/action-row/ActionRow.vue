@@ -17,7 +17,9 @@
     </div>
     <div class="recording-controls">
       <BaseButton text="New Request" class="btn-blue">
-        <div class="icon-ic:round-videocam prefix-image"/>
+        <template #image>
+          <div class="icon-ic:outline-videocam prefix-image"/>
+        </template>
       </BaseButton>
       <BaseButton text="Start Recording" class="btn-secondary" :prefix-image="RecordIcon" />
     </div>

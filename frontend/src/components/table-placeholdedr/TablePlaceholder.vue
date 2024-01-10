@@ -1,7 +1,7 @@
 <template>
   <div class="placeholder-area">
     <div class="instructions">
-      <img src="" alt="icon" />
+      <img :src="EmptyTable" class="empty-table" alt="icon" />
       <p>Say hello to the world!</p>
       <small>Record your first video/audio and share it with your team, friends, followers, and customers.</small>
     </div>
@@ -15,15 +15,15 @@
 <script setup lang="ts">
 import RecordIcon from '@/assets/icons/record.svg'
 import BaseButton from '@/components/misc/BaseButton.vue'
+import EmptyTable from '@/assets/icons/empty-table.svg'
 </script>
 
 <style scoped lang="scss">
    .placeholder-area {
      @apply flex flex-col items-center p-3em rounded-38px;
-     @apply shadow-lg; // Added background color and shadow
      @apply mx-auto; // Restricts width and centers the component
      @apply my-6; // Adds vertical margin
-     border: 1px dashed #A3BAC6;
+     border: 2px dashed #A3BAC6;
 
      .instructions {
        @apply text-center; // Centers the text
@@ -47,6 +47,10 @@ import BaseButton from '@/components/misc/BaseButton.vue'
 
      .recording-controls {
        @apply flex gap-4 mt-4; // Adds space between buttons and moves them down a bit
+     }
+
+     .empty-table {
+       @apply w-3em h-3em;
      }
    }
 </style>
