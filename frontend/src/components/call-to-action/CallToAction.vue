@@ -20,8 +20,8 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .image-with-text {
-  @apply flex items-center p-4;
-  @apply gap-4; // Adds space between the image and text content
+  @apply flex items-center justify-center w-full p-4;
+  @apply gap-2em; // Adds space between the image and text content
 
   img {
     @apply w-32 h-32; // Adjusts the size of the image, change as needed
@@ -33,7 +33,7 @@ const props = defineProps({
     @apply justify-start; // Aligns content to the start of the flex container
 
     span {
-      @apply text-lg font-medium; // Makes the text larger and slightly bolder
+      @apply text-xl font-semibold; // Makes the text larger and slightly bolder
       @apply text-gray-800; // Sets the text color, adjust as needed
       @apply max-w-xs; // Limits the width of the text, adjust as needed
     }

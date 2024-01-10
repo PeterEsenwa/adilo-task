@@ -1,13 +1,17 @@
 <template>
   <div class="placeholder-area">
     <div class="instructions">
-      <img :src="EmptyTable" class="empty-table" alt="icon" />
+      <img :src="EmptyTable" alt="icon" />
       <p>Say hello to the world!</p>
       <small>Record your first video/audio and share it with your team, friends, followers, and customers.</small>
     </div>
     <div class="recording-controls">
-      <BaseButton text="New Request" class="btn-blue" :prefix-image="RecordIcon" />
-      <BaseButton text="Start Recording" class="btn-secondary" :prefix-image="RecordIcon" />
+      <BaseButton text="New Request" class="btn-blue">
+        <template #image>
+          <div class="icon-ic:outline-videocam prefix-image"/>
+        </template>
+      </BaseButton>
+      <BaseButton text="Start Recording" class="btn-secondary" :prefix-image="RecordIcon" @click="goToRecording()"/>
     </div>
   </div>
 </template>
@@ -16,6 +20,7 @@
 import RecordIcon from '@/assets/icons/record.svg'
 import BaseButton from '@/components/misc/BaseButton.vue'
 import EmptyTable from '@/assets/icons/empty-table.svg'
+import { goToRecording } from '@/router'
 </script>
 
 <style scoped lang="scss">
@@ -31,7 +36,7 @@ import EmptyTable from '@/assets/icons/empty-table.svg'
 
        img {
          @apply mb-3; // Margin below the icon
-         @apply h-12 w-full; // Adjusts the size of the icon
+         @apply h-10em w-full; // Adjusts the size of the icon
          @apply flex items-center justify-center
        }
 
@@ -47,10 +52,6 @@ import EmptyTable from '@/assets/icons/empty-table.svg'
 
      .recording-controls {
        @apply flex gap-4 mt-4; // Adds space between buttons and moves them down a bit
-     }
-
-     .empty-table {
-       @apply w-3em h-3em;
      }
    }
 </style>

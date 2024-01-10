@@ -3,7 +3,9 @@
     <div class="header-content">
       <!-- Branding or Logo -->
       <div class="logo">
-        <Adilo />
+        <RouterLink to="/">
+          <Adilo />
+        </RouterLink>
       </div>
 
       <!-- Navigation Menu -->

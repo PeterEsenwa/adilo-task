@@ -1,6 +1,6 @@
 <template>
   <Story>
-    <action-row />
+    <action-row :recording-count="0"/>
   </Story>
 </template>
 

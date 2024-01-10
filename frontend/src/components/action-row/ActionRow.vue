@@ -1,7 +1,7 @@
 <template>
   <div class="action-row">
     <div class="recordings-info">
-      <div>My Recording <span>{{ numberOfRecordings }}</span></div>
+      <div>My Recording <span>{{ recordingCount }}</span></div>
     </div>
     <div class="action-buttons">
       <BaseButton text="By Date" style="--button-bg-color: transparent; --button-hover-bg-color:none; --button-text-color:#637C8E; --button-border-color: #E2E5ED">
@@ -21,7 +21,7 @@
           <div class="icon-ic:outline-videocam prefix-image"/>
         </template>
       </BaseButton>
-      <BaseButton text="Start Recording" class="btn-secondary" :prefix-image="RecordIcon" />
+      <BaseButton text="Start Recording" class="btn-secondary" :prefix-image="RecordIcon" @click="goToRecording" />
     </div>
   </div>
 </template>
@@ -30,8 +30,11 @@
 import BaseButton from '@/components/misc/BaseButton.vue'
 import { ref } from 'vue'
 import RecordIcon from '@/assets/icons/record.svg'
+import { goToRecording } from '@/router'
 
-const numberOfRecordings = ref(0);
+const props = defineProps<{
+  recordingCount: number;
+}>()
 
 const name = ref('');
 const selectedProject = ref();

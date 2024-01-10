@@ -14,11 +14,11 @@
 import ProfileSection from '@/components/profile-section/ProfileSection.vue';
 import { defineProps } from 'vue';
 
-defineProps({
-  userImage: String,
-  userName: String,
-  userEmail: String
-});
+defineProps<{
+  userEmail: string;
+  userImage: string;
+  userName: string;
+}>();
 </script>
 
 <style lang="scss" scoped>

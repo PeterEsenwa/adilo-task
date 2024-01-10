@@ -1,36 +1,38 @@
 <template>
   <aside class="sidebar">
-  <div class="panel" v-for="panel in panelInfo" @click="navigateTo(panel.route)">
-    <span :class="panel.icon" />
-    {{ panel.title }}
-  </div>
+    <div class="panel" v-for="panel in panelInfo" @click="navigateTo(panel.route)">
+      <span :class="panel.icon" />
+      {{ panel.title }}
+    </div>
   </aside>
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
 export interface PanelInfo {
-  title: string;
-  icon: string;
-  route: string;
+  title?: string
+  icon?: string
+  route?: string
 }
 
 const props = defineProps<{
-  panelInfo: PanelInfo[],
-}>();
+  panelInfo: PanelInfo[]
+}>()
 
-const router = useRouter();
+const router = useRouter()
 
-const navigateTo = (route: string) => {
-  router.push(route);
-};
+const navigateTo = (route?: string) => {
+  if (!route) return
+
+  router.push(route)
+}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .sidebar {
-  @apply flex flex-col w-64 h-screen;
-  border-right: 2px solid #21455E;
+  @apply flex flex-col w-64 h-screen bg-[#EBF2F6]/30 color-[#21455E] font-size-1em;
+  @apply border-r-2 border-[#21455E];
 
   /* Additional styling */
   @apply overflow-y-auto;
@@ -38,8 +40,6 @@ const navigateTo = (route: string) => {
   @apply relative;
 
   scroll-behavior: smooth;
-  color: #21455E;
-  font-size: 1em;
 
   /* Styling for scrollbar (optional) */
   &::-webkit-scrollbar {
@@ -58,9 +58,8 @@ const navigateTo = (route: string) => {
   @apply rounded-lg;
 
   &:hover {
-    background: #E2E5ED 0 0 no-repeat padding-box;
-    border: 1px solid #0DABD838;
-    border-radius: 10px;
+    @apply bg-[#E2E5ED] rounded-10px;
+    @apply border border-[#0dabd838];
   }
 }
 

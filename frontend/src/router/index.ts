@@ -17,4 +17,6 @@ const router = createRouter({
   ]
 })
 
+export const goToRecording = () => router.push('/recording')
+
 export default router
